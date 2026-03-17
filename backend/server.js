@@ -11,7 +11,16 @@ const adminRoutes = require('./src/routes/admin');
 
 const app = express();
 
-app.use(cors({ origin: 'http://localhost:5173' }));
+Ótimo! Agora no VS Code abra backend/server.js e substitua a linha do cors por:
+
+js
+app.use(cors({
+  origin: [
+    'http://localhost:5173',
+    'https://clinicamed-mocha.vercel.app'
+  ],
+  credentials: true
+}));
 app.use(express.json());
 
 app.use('/api/auth', authRoutes);
