@@ -31,7 +31,9 @@ const PORT = process.env.PORT || 3001;
 
 sequelize.sync({ alter: false }).then(() => {
   console.log('✅ Banco de dados sincronizado');
-  app.listen(PORT, () => console.log(`🚀 Backend rodando na porta ${PORT}`));
+  app.listen(PORT, '0.0.0.0', () => {
+    console.log(`🚀 Backend rodando na porta ${PORT}`);
+  });
 }).catch(err => {
   console.error('❌ Erro ao conectar banco:', err);
   process.exit(1);
